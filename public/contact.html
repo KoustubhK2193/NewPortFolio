@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Koustubh Kulkarni</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="images\yti3.png" type="image/x-icon">
+    <link rel="shortcut icon" href="images\yti3.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/4de9d02978.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("oDWKuuGP8lQiXPDgx");
+        })();
+    </script>
+
+</head>
+
+<body>
+
+    <div class="home">
+        <div class="container">
+            <nav class="navbar">
+                <div class="navbar-left">
+                    <div class="width-33 logo">
+                        <span class="koustubh">Koustubh</span><span class="kulkarni
+                        ">Kulkarni.</span>
+                    </div>
+                </div>
+
+                <div class="navbar-right">
+                    <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+                    <ul class="navbar-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="skills.html">Skills</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+                    </ul>
+                </div>
+            </nav>
+
+        </div>
+
+        <div class="overlay"></div>
+
+        <div id="contact">
+            <div class="container" style="margin-top: 150px;">
+                <div class="row">
+                    <div class="contact-left">
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fa-solid fa-envelope"></i><a href="mailto:koustubhk2193@gmail.com"></a>koustubhk2193@gmail.com</p>
+                        <p><i class="fa-solid fa-phone"></i><a href="tel:+919307058374"></a>9307058374</p>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com/in/koustubhk2193" target="_blank"><i
+                                    class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://github.com/Koustubhk2193" target="_blank"><i
+                                    class="fa-brands fa-github"></i></a>
+                            <a href="https://www.linkedin.com/in/koustubhk2193" target="_blank"><i
+                                    class="fa-brands fa-square-instagram"></i></a>
+                            <a href="https://x.com/KKulkarni219" target="_blank"><i
+                                    class="fa-brands fa-square-x-twitter"></i></a>
+                        </div>
+                        <a href="personal portfolio\images\resume.pdf" download class="btn btn2">Download CV</a>
+                    </div>
+                    <div class="contact-right">
+                        <form id="contact-form">
+                            <input type="text" name="name" placeholder="Your Name" required />
+                            <input type="email" name="email" placeholder="Your Email" required />
+                            <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>
+                    Copyright &copy; Koustubh. Made with
+                    <i class="fa-solid fa-heart fa-beat"></i> by Koustubh & Suyash.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        import React, { useEffect, useState } from 'react';
+
+function Contact() {
+  const [content, setContent] = useState('');
+
+  useEffect(() => {
+    fetch('/home.html')
+      .then((response) => response.text())
+      .then((data) => setContent(data));
+  }, []);
+
+  return <div dangerouslySetInnerHTML={{ __html: content }} />;
+}
+
+export default Home;
+        // EmailJS
+        document.getElementById('contact-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            emailjs.sendForm('service_tdh5pag', 'template_c0aobun', this)
+                .then(function () {
+                    alert('Message sent successfully!');
+                }, function (error) {
+                    alert('Failed to send message. Please try again later.');
+                });
+        });
+
+    </script>
+</body>
+
+</html>
